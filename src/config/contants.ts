@@ -1,0 +1,2 @@
+export const INITIAL_SNAKE_POSITION_X = 5
+export const INITIAL_SNAKE_POSITION_Y = 10
