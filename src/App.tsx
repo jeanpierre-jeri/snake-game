@@ -5,9 +5,10 @@ import { useGameStore } from './store/game.store'
 function App () {
   const updateSnakePosition = useGameStore(state => state.updateSnakePosition)
   const [score, highestScore] = useGameStore(state => [state.score, state.highestScore])
+  const [snakePosition, snakeBody] = useGameStore(state => [state.snakePosition, state.snakeBody])
 
   useEffect(() => {
-    const intervalId = setInterval(updateSnakePosition, 250)
+    const intervalId = setInterval(updateSnakePosition, 125)
 
     return () => {
       clearInterval(intervalId)
@@ -23,6 +24,10 @@ function App () {
           <h2>Highest Score: {highestScore}</h2>
         </div>
         <Board />
+      </div>
+      <div className='fixed bg-gray-900 text-white p-4 rounded-md bottom-4 left-4'>
+        <p>snakePosition: {JSON.stringify(snakePosition)}</p>
+        <p>snakeBody: {JSON.stringify(snakeBody)}</p>
       </div>
     </div>
   )
