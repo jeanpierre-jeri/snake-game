@@ -3,17 +3,24 @@ import { Board } from './components/Board'
 import { useGameStore } from './store/game.store'
 
 function App () {
-  const startGame = useGameStore(state => state.startGame)
+  const updateSnakePosition = useGameStore(state => state.updateSnakePosition)
+  const [score, highestScore] = useGameStore(state => [state.score, state.highestScore])
+
   useEffect(() => {
-    setInterval(startGame, 1000)
-  }, [startGame])
+    const intervalId = setInterval(updateSnakePosition, 250)
+
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [updateSnakePosition])
 
   return (
     <div className='bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black min-h-screen flex justify-center items-center flex-col'>
-      <div className='w-full max-w-sm mx-auto px-4 overflow-hidden'>
-        <div className='flex justify-between items-center px-4 py-2 bg-[#040917] text-white mb-1 rounded-md'>
-          <h2>Score: 15</h2>
-          <h2>High Score: 30</h2>
+      <h2 className='text-center text-white mb-2 text-2xl'>Use Arrows to move!</h2>
+      <div className='w-full max-w-2xl mx-auto px-4 overflow-hidden'>
+        <div className='flex justify-between items-center px-4 py-2 bg-[#040917] text-white mb-1 rounded-md text-2xl'>
+          <h2>Score: {score}</h2>
+          <h2>Highest Score: {highestScore}</h2>
         </div>
         <Board />
       </div>
