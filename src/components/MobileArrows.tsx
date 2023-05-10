@@ -14,13 +14,14 @@ export function MobileArrows ({ handleClick }: { handleClick: (direction: Direct
           <UpArrowIcon />
         </button>
 
+        <button onClick={() => handleClick('down')} className='flex-grow flex justify-center p-5 bg-[#040917]'>
+          <DownArrowIcon />
+        </button>
+
         <button onClick={() => handleClick('right')} className='flex-grow flex justify-center p-5 bg-[#040917]'>
           <RightArrowIcon />
         </button>
 
-        <button onClick={() => handleClick('down')} className='flex-grow flex justify-center p-5 bg-[#040917]'>
-          <DownArrowIcon />
-        </button>
       </div>
     </div>
   )
