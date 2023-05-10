@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@sweetalert2/theme-dark':
+    specifier: 5.0.15
+    version: 5.0.15
   just-debounce-it:
     specifier: 3.2.0
     version: 3.2.0
@@ -18,9 +21,6 @@ dependencies:
     version: 4.3.8(react@18.2.0)
 
 devDependencies:
-  '@sweetalert2/theme-dark':
-    specifier: 5.0.15
-    version: 5.0.15
   '@types/react':
     specifier: 18.0.28
     version: 18.0.28
@@ -498,7 +498,7 @@ packages:
 
   /@sweetalert2/theme-dark@5.0.15:
     resolution: {integrity: sha512-g1QCwQVOkiAz5hIEBOIvvu0580lubu4KuQlod+48QetYzGIEXNlHEH36QihCDnGVgE6vx48iO48w9q0WrZWyHQ==}
-    dev: true
+    dev: false
 
   /@types/json-schema@7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
