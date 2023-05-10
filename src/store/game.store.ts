@@ -2,8 +2,8 @@ import { create } from 'zustand'
 import { generateInitialPosition, generateRandomPosition } from '../lib/position'
 import { BOARD_SIZE, INITIAL_SNAKE_POSITION_X, INITIAL_SNAKE_POSITION_Y } from '../config/contants'
 import { Position, Speed } from '../types'
-import Swal from 'sweetalert2'
 import { updateHighestScore } from '../lib/score'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 interface GameStore {
   snakePosition: Position
