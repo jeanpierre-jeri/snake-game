@@ -4,8 +4,8 @@ import { BoardSizeRange, Position } from '../types'
 export const generateRandomPosition = (takenPositions: Position[]): Position => {
   const randomPositionX = Math.floor(Math.random() * BOARD_SIZE) + 1 as BoardSizeRange
   const randomPositionY = Math.floor(Math.random() * BOARD_SIZE) + 1 as BoardSizeRange
-  console.log(randomPositionX, randomPositionY, takenPositions)
-  const isPositionTaken = takenPositions.some(([x, y]) => x === randomPositionX || y === randomPositionY)
+
+  const isPositionTaken = takenPositions.some(([x, y]) => x === randomPositionX && y === randomPositionY)
   if (isPositionTaken) {
     return generateRandomPosition(takenPositions)
   }
