@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { generateInitialPosition, generateRandomPosition } from '../lib/position'
-import { INITIAL_SNAKE_POSITION_X, INITIAL_SNAKE_POSITION_Y } from '../config/contants'
+import { BOARD_SIZE, INITIAL_SNAKE_POSITION_X, INITIAL_SNAKE_POSITION_Y } from '../config/contants'
 import { Position, Speed } from '../types'
 import Swal from 'sweetalert2'
 import { updateHighestScore } from '../lib/score'
@@ -61,9 +61,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
     const positionX = snakeX + speedX
     const positionY = snakeY + speedY
-    const didSnakeEatItself = snakeBody.slice(1).some(([x, y]) => x === positionX && y === positionY)
+    const didSnakeEatItself = snakeBody.some(([x, y]) => x === positionX && y === positionY)
 
-    if (positionX < 1 || positionX > 30 || positionY < 1 || positionY > 30 || didSnakeEatItself) {
+    if (positionX < 1 || positionX > BOARD_SIZE || positionY < 1 || positionY > BOARD_SIZE || didSnakeEatItself) {
       set({ gameOver: true })
       return
     }
